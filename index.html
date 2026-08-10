@@ -4,46 +4,698 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        My Love 💙 | Happy Birthday Motta
-    </title>
+<title>My Love 💙</title>
 
-    <meta
-        name="description"
-        content="A little birthday surprise made with love for Motta 💙💜"
-    >
+<style>
 
-    <!-- Google Fonts -->
+/* =====================================================
+   BASIC SETTINGS
+===================================================== */
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+* {
+    box-sizing: border-box;
+}
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+body {
 
-    <!-- Main CSS -->
+    font-family: "Poppins", Arial, sans-serif;
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff5ff,
+            #e8edff,
+            #eee2ff
+        );
+
+    color: #263e70;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+
+    height: 350px;
+
+    top: -120px;
+
+    left: -100px;
+
+    border-radius: 50%;
+
+    background: #b8e7ff;
+
+    filter: blur(70px);
+
+    opacity: 0.7;
+
+}
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+
+    height: 400px;
+
+    right: -130px;
+
+    bottom: -150px;
+
+    border-radius: 50%;
+
+    background: #d4bfff;
+
+    filter: blur(80px);
+
+    opacity: 0.65;
+
+}
+
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
+
+.page {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 5;
+}
+
+
+.page.active {
+
+    display: flex;
+
+    animation: pageAppear 0.6s ease;
+
+}
+
+
+@keyframes pageAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    width: min(680px, 94vw);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background: rgba(255,255,255,0.82);
+
+    border: 1px solid rgba(255,255,255,0.95);
+
+    box-shadow:
+        0 25px 70px rgba(48,70,120,0.18);
+
+    backdrop-filter: blur(18px);
+
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+h1 {
+
+    margin: 10px 0 15px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2rem, 6vw, 3.4rem);
+
+    color: #244477;
+
+}
+
+
+h2 {
+
+    color: #62448f;
+
+}
+
+
+.small {
+
+    color: #765995;
+
+    font-size: 0.95rem;
+
+}
+
+
+.sub {
+
+    color: #5d6e91;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   ICONS
+===================================================== */
+
+.big-icon {
+
+    font-size: 4rem;
+
+    margin-bottom: 10px;
+
+    animation: float 2.5s ease-in-out infinite;
+
+}
+
+
+@keyframes float {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+
+    }
+
+}
+
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
+
+.buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+}
+
+
+button {
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding: 15px 30px;
+
+    min-width: 140px;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+button:hover {
+
+    filter: brightness(1.05);
+
+}
+
+
+.yes {
+
+    background:
+        linear-gradient(
+            135deg,
+            #5faee3,
+            #416fb4
+        );
+
+    box-shadow:
+        0 10px 25px rgba(65,111,180,0.25);
+
+}
+
+
+.no {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ae91dc,
+            #7654a1
+        );
+
+    box-shadow:
+        0 10px 25px rgba(118,84,161,0.25);
+
+}
+
+
+.continue {
+
+    background:
+        linear-gradient(
+            135deg,
+            #619fdc,
+            #785ab0
+        );
+
+    margin-top: 20px;
+
+}
+
+
+/* =====================================================
+   HINT
+===================================================== */
+
+.hint {
+
+    min-height: 30px;
+
+    margin-top: 20px;
+
+    color: #654c91;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   BIRTHDAY PAGE
+===================================================== */
+
+.birthday-title {
+
+    font-size: clamp(2.4rem, 8vw, 4.3rem);
+
+    color: #244a7d;
+
+}
+
+
+.love-title {
+
+    font-size: 1.7rem;
+
+    color: #67468e;
+
+}
+
+
+.balloons {
+
+    font-size: 2.8rem;
+
+    margin: 20px 0;
+
+}
+
+
+/* =====================================================
+   LOVE PAGE
+===================================================== */
+
+.love-text {
+
+    line-height: 1.8;
+
+    color: #536687;
+
+    font-size: 0.96rem;
+
+}
+
+
+.highlight {
+
+    padding: 15px;
+
+    margin-top: 20px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(205,237,255,0.55),
+            rgba(222,204,255,0.55)
+        );
+
+    color: #604287;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   FINAL PAGE
+===================================================== */
+
+.final-message {
+
+    line-height: 1.9;
+
+    color: #526383;
+
+}
+
+
+.final-message h2 {
+
+    margin-top: 25px;
+
+    font-size: 1.7rem;
+
+}
+
+
+.final-heart {
+
+    font-size: 4.5rem;
+
+    animation: heartBeat 1.5s infinite;
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+    }
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+#confetti {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 50;
+
+}
+
+
+.confetti-piece {
+
+    position: absolute;
+
+    top: -20px;
+
+    width: 8px;
+
+    height: 12px;
+
+    border-radius: 3px;
+
+    animation:
+        fall linear forwards;
+
+}
+
+
+@keyframes fall {
+
+    from {
+
+        top: -20px;
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        top: 110vh;
+
+        transform: rotate(720deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 1;
+
+}
+
+
+.hearts span {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 22px;
+
+    opacity: 0.35;
+
+    animation: heartsUp linear infinite;
+
+}
+
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-duration: 12s;
+}
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-duration: 15s;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(3) {
+    left: 45%;
+    animation-duration: 11s;
+    animation-delay: 5s;
+}
+
+.hearts span:nth-child(4) {
+    left: 65%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(5) {
+    left: 85%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+
+@keyframes heartsUp {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(25deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        padding: 32px 20px;
+
+        border-radius: 25px;
+
+    }
+
+    h1 {
+
+        font-size: 2rem;
+
+    }
+
+    .big-icon {
+
+        font-size: 3rem;
+
+    }
+
+    button {
+
+        min-width: 120px;
+
+        padding: 13px 22px;
+
+        font-size: 0.9rem;
+
+    }
+
+    .love-text {
+
+        font-size: 0.88rem;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        animation-duration: 0.01ms !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -51,391 +703,741 @@
 <body>
 
 
-    <!-- =========================================
-         ROMANTIC BACKGROUND
-    ========================================== -->
+<!-- =====================================================
+     FLOATING HEARTS
+===================================================== -->
 
-    <div class="background-decoration decoration-one"></div>
+<div class="hearts">
 
-    <div class="background-decoration decoration-two"></div>
+    <span>💙</span>
+    <span>💜</span>
+    <span>♡</span>
+    <span>💙</span>
+    <span>💜</span>
 
-    <div class="glow glow-blue"></div>
-
-    <div class="glow glow-purple"></div>
+</div>
 
 
-    <!-- Floating Hearts -->
+<!-- =====================================================
+     CONFETTI CONTAINER
+===================================================== -->
 
-    <div class="floating-hearts">
+<div id="confetti"></div>
 
-        <span>💙</span>
-        <span>💜</span>
-        <span>♡</span>
-        <span>💙</span>
-        <span>💜</span>
-        <span>♡</span>
-        <span>💙</span>
-        <span>💜</span>
+
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<section
+    class="page active"
+    id="page1"
+>
+
+    <div class="card">
+
+        <div class="big-icon">
+            🎂
+        </div>
+
+        <p class="small">
+            A little question for you...
+        </p>
+
+        <h1>
+            Is today your birthday, Motta?
+        </h1>
+
+        <p class="sub">
+            Be honest with me... 👀💙
+        </p>
+
+
+        <div class="buttons">
+
+            <button
+                class="yes"
+                id="birthdayYes"
+            >
+                YES 💙
+            </button>
+
+
+            <button
+                class="no"
+                id="birthdayNo"
+            >
+                NO 💜
+            </button>
+
+        </div>
+
+
+        <p
+            class="hint"
+            id="birthdayHint"
+        ></p>
 
     </div>
 
+</section>
 
-    <!-- Sparkles -->
 
-    <div class="sparkles">
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
 
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
+<section
+    class="page"
+    id="page2"
+>
+
+    <div class="card">
+
+        <div class="big-icon">
+            👑
+        </div>
+
+        <p class="small">
+            Today is all about you...
+        </p>
+
+        <h1 class="birthday-title">
+            HAPPY BIRTHDAY
+        </h1>
+
+        <h2>
+            MOTTA 💙
+        </h2>
+
+        <p class="love-title">
+            I REALLY LOVE YOU ❤️
+        </p>
+
+        <div class="balloons">
+            🎈 🎂 🎈
+        </div>
+
+        <p class="sub">
+            I hope this little surprise
+            makes your birthday even more special. 💜
+        </p>
+
+
+        <button
+            class="continue"
+            id="continueButton"
+        >
+            CONTINUE 💙
+        </button>
 
     </div>
 
+</section>
 
 
-    <!-- =========================================
-         WEBSITE
-    ========================================== -->
+<!-- =====================================================
+     PAGE 3
+===================================================== -->
 
-    <main class="website">
+<section
+    class="page"
+    id="page3"
+>
 
+    <div class="card">
 
-        <!-- =====================================
-             PAGE 1
-        ====================================== -->
+        <div class="big-icon">
+            💜
+        </div>
 
-        <section
-            class="page active"
-            id="page1"
-        >
+        <p class="small">
+            Something I want you to know...
+        </p>
 
-            <div class="card">
-
-                <div class="cute-icon">
-                    🎂
-                </div>
-
-                <p class="small-text">
-                    A little question for you...
-                </p>
-
-                <h1>
-                    Is today your birthday, Motta?
-                </h1>
-
-                <p class="sub-text">
-                    Be honest with me... 👀💙
-                </p>
-
-                <div class="question-buttons">
-
-                    <button
-                        class="btn yes-btn"
-                        id="yesBirthday"
-                        onclick="birthdayYes()"
-                    >
-                        YES 💙
-                    </button>
-
-                    <button
-                        class="btn no-btn"
-                        id="noBirthday"
-                        onclick="birthdayNo()"
-                    >
-                        NO 💜
-                    </button>
-
-                </div>
-
-                <p
-                    class="little-hint"
-                    id="birthdayHint"
-                ></p>
-
-            </div>
-
-        </section>
+        <h1>
+            My Love For You
+        </h1>
 
 
+        <div class="love-text">
 
-        <!-- =====================================
-             PAGE 2 — BIRTHDAY CELEBRATION
-        ====================================== -->
+            <p>
+                I am so glad to have you
+                in my life, and I love you
+                more than words can explain.
+            </p>
 
-        <section
-            class="page"
-            id="page2"
-        >
+            <p>
+                I want our relationship to
+                last as long as I am alive.
+                I want us to keep making
+                beautiful memories together.
+            </p>
 
-            <div
-                class="card celebration-card"
+            <p>
+                You are someone incredibly
+                special to me, and I am
+                grateful for every moment
+                we share.
+            </p>
+
+            <p>
+                I hope we always support each
+                other, laugh together, and
+                choose each other every day. 💙
+            </p>
+
+            <p class="highlight">
+                You are my favorite person. Always. 💜
+            </p>
+
+        </div>
+
+
+        <h2>
+            DO YOU LOVE ME? 🥺
+        </h2>
+
+
+        <div class="buttons">
+
+            <button
+                class="yes"
+                id="loveYes"
             >
+                YES 💜
+            </button>
 
-                <div class="birthday-crown">
-                    👑
-                </div>
-
-                <p class="small-text">
-                    Today is all about you...
-                </p>
-
-                <h1 class="birthday-title">
-                    HAPPY BIRTHDAY
-                </h1>
-
-                <h2>
-                    MOTTA 💙
-                </h2>
-
-                <p class="love-highlight">
-                    I REALLY LOVE YOU ❤️
-                </p>
-
-                <div class="birthday-decoration">
-                    🎈 🎂 🎈
-                </div>
-
-                <p class="sub-text">
-                    I hope this little surprise makes
-                    your day a little more special. 💜
-                </p>
-
-                <button
-                    class="btn continue-btn"
-                    onclick="goToPage(3)"
-                >
-                    CONTINUE 💙
-                </button>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             PAGE 3 — LOVE MESSAGE
-        ====================================== -->
-
-        <section
-            class="page"
-            id="page3"
-        >
-
-            <div
-                class="card love-card"
+            <button
+                class="no"
+                id="loveNo"
             >
+                NO 💙
+            </button>
 
-                <div class="heart-icon">
-                    💜
-                </div>
+        </div>
 
-                <p class="small-text">
-                    Something I want you to know...
-                </p>
 
-                <h1>
-                    My Love For You
-                </h1>
+        <p
+            class="hint"
+            id="loveHint"
+        ></p>
 
+    </div>
 
-                <!-- LOVE MESSAGE -->
+</section>
 
-                <div class="love-message">
 
-                    <p class="love-line">
+<!-- =====================================================
+     PAGE 4
+===================================================== -->
 
-                        I am so glad to have you
-                        in my life.
+<section
+    class="page"
+    id="page4"
+>
 
-                        You mean more to me than
-                        words can ever explain.
+    <div class="card">
 
-                    </p>
+        <div class="final-heart">
+            💙
+        </div>
 
-                    <p class="love-line">
+        <p class="small">
+            One last thing...
+        </p>
 
-                        I love you the most, and I
-                        truly want our relationship
-                        to last as long as I am alive.
+        <h1>
+            Thank You, My Love
+        </h1>
 
-                    </p>
 
-                    <p class="love-line">
+        <div class="final-message">
 
-                        You are someone incredibly
-                        special to me, and having you
-                        beside me makes my world feel
-                        a little more beautiful.
+            <p>
+                I AM SO HAPPY THAT YOU LOVE ME
+                AND IT MAKES ME FEEL SPECIAL
+                TO BE LOVED BY SOMEONE WHOM
+                I LOVE THE MOST. 💜
+            </p>
 
-                    </p>
+            <p>
+                ONCE AGAIN...
+            </p>
 
-                    <p class="love-line">
+            <h2>
+                HAPPY BIRTHDAY MY LOVE 🎂💙
+            </h2>
 
-                        I hope we continue making
-                        beautiful memories, laughing
-                        together, supporting each other,
-                        and choosing each other every
-                        single day. 💙
+            <p>
+                Here's to us, our memories,
+                and everything that is still
+                waiting for us. ✨
+            </p>
 
-                    </p>
+        </div>
 
-                    <p class="special-line love-line">
+    </div>
 
-                        You are my favorite person.
-                        Always. 💜
+</section>
 
-                    </p>
 
-                </div>
+<!-- =====================================================
+     🎵 YOUR MUSIC
+===================================================== -->
 
+<audio
+    id="birthdayMusic"
+    loop
+>
 
-                <!-- LOVE QUESTION -->
-
-                <div class="love-question">
-
-                    <h2>
-                        DO YOU LOVE ME? 🥺
-                    </h2>
-
-                    <div class="question-buttons">
-
-                        <button
-                            class="btn yes-love-btn"
-                            onclick="loveYes()"
-                        >
-                            YES 💜
-                        </button>
-
-                        <button
-                            class="btn no-love-btn"
-                            onclick="loveNo()"
-                        >
-                            NO 💙
-                        </button>
-
-                    </div>
-
-                    <p
-                        class="little-hint"
-                        id="loveHint"
-                    ></p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             PAGE 4 — FINAL MESSAGE
-        ====================================== -->
-
-        <section
-            class="page"
-            id="page4"
-        >
-
-            <div
-                class="card final-card"
-            >
-
-                <div class="final-heart">
-                    💙
-                </div>
-
-                <p class="small-text">
-                    One last thing...
-                </p>
-
-                <h1>
-                    Thank You, My Love
-                </h1>
-
-
-                <!-- FINAL MESSAGE -->
-
-                <div class="final-message">
-
-                    <p>
-
-                        I AM SO HAPPY THAT YOU LOVE ME
-                        AND IT MAKES ME FEEL SPECIAL
-                        TO BE LOVED BY SOMEONE WHOM
-                        I LOVE THE MOST. 💜
-
-                    </p>
-
-                    <p>
-                        ONCE AGAIN,
-                    </p>
-
-                    <h2>
-                        HAPPY BIRTHDAY MY LOVE 🎂💙
-                    </h2>
-
-                    <p class="forever">
-
-                        Here's to us, our memories,
-                        and everything that is still
-                        waiting for us. ✨
-
-                    </p>
-
-                </div>
-
-
-                <div class="final-decoration">
-
-                    💙 💜 💙
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================================
-         CONFETTI
-    ========================================== -->
-
-    <div id="confetti-container"></div>
-
-
-
-    <!-- =========================================
-         YOUR BIRTHDAY MUSIC
-    ========================================== -->
-
-    <audio
-        id="birthdayMusic"
-        loop
+    <source
+        src="assets/WhatsApp%20Audio%202026-08-10%20at%205.45.11%20AM.mpeg"
+        type="audio/mpeg"
     >
 
-        <source
-            src="assets/WhatsApp%20Audio%202026-08-10%20at%205.45.11%20AM.mpeg"
-            type="audio/mpeg"
-        >
-
-    </audio>
+</audio>
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-    <script src="script.js"></script>
+<script>
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let birthdayNoClicks = 0;
+
+let loveNoClicks = 0;
+
+let confettiStarted = false;
+
+
+/* =====================================================
+   PAGE FUNCTION
+===================================================== */
+
+function showPage(number) {
+
+    document.querySelectorAll(".page").forEach(
+        function(page) {
+
+            page.classList.remove("active");
+
+        }
+    );
+
+
+    document.getElementById(
+        "page" + number
+    ).classList.add("active");
+
+}
+
+
+/* =====================================================
+   🎂 PAGE 1 — NO
+===================================================== */
+
+document.getElementById(
+    "birthdayNo"
+).addEventListener(
+    "click",
+    function() {
+
+        birthdayNoClicks++;
+
+
+        const yesButton =
+            document.getElementById(
+                "birthdayYes"
+            );
+
+
+        const noButton =
+            document.getElementById(
+                "birthdayNo"
+            );
+
+
+        const hint =
+            document.getElementById(
+                "birthdayHint"
+            );
+
+
+        /* YES gets bigger */
+
+        const yesSize =
+            1 + (birthdayNoClicks * 0.25);
+
+
+        yesButton.style.transform =
+            "scale(" + yesSize + ")";
+
+
+        /* NO gets smaller */
+
+        const noSize =
+            Math.max(
+                0.65,
+                1 - birthdayNoClicks * 0.08
+            );
+
+
+        noButton.style.transform =
+            "scale(" + noSize + ")";
+
+
+        /* Keep YES on top */
+
+        yesButton.style.position =
+            "relative";
+
+        yesButton.style.zIndex =
+            "100";
+
+
+        /* Messages */
+
+        const messages = [
+
+            "Are you sure? 👀",
+
+            "Motta... think again. 😭",
+
+            "Try again, my love. 💙",
+
+            "You know the answer is YES. 🥺",
+
+            "Look! The YES button is growing! 😂",
+
+            "JUST SAY YES! 😭💜",
+
+            "The YES button is winning. 😂",
+
+            "Okay... you have to say YES now. 💙"
+
+        ];
+
+
+        const index =
+            Math.min(
+                birthdayNoClicks - 1,
+                messages.length - 1
+            );
+
+
+        hint.textContent =
+            messages[index];
+
+    }
+);
+
+
+/* =====================================================
+   💙 PAGE 1 — YES
+===================================================== */
+
+document.getElementById(
+    "birthdayYes"
+).addEventListener(
+    "click",
+    function() {
+
+        showPage(2);
+
+        startConfetti();
+
+
+        /* Start music */
+
+        const music =
+            document.getElementById(
+                "birthdayMusic"
+            );
+
+
+        music.volume = 0.7;
+
+
+        music.play().catch(
+            function(error) {
+
+                console.log(
+                    "Music error:",
+                    error
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   💙 PAGE 2 — CONTINUE
+===================================================== */
+
+document.getElementById(
+    "continueButton"
+).addEventListener(
+    "click",
+    function() {
+
+        showPage(3);
+
+    }
+);
+
+
+/* =====================================================
+   💜 PAGE 3 — NO
+===================================================== */
+
+document.getElementById(
+    "loveNo"
+).addEventListener(
+    "click",
+    function() {
+
+        loveNoClicks++;
+
+
+        const yesButton =
+            document.getElementById(
+                "loveYes"
+            );
+
+
+        const hint =
+            document.getElementById(
+                "loveHint"
+            );
+
+
+        /* Make YES bigger */
+
+        const size =
+            Math.min(
+                1 + loveNoClicks * 0.15,
+                2
+            );
+
+
+        yesButton.style.transform =
+            "scale(" + size + ")";
+
+
+        /* Messages */
+
+        const messages = [
+
+            "Hmm... try again. 🥺",
+
+            "I don't believe you. 😭",
+
+            "Wrong answer, my love. 💜",
+
+            "Are you really sure? 👀",
+
+            "Motta pleaseeee. 🥺",
+
+            "I KNOW YOU LOVE ME! 😂",
+
+            "The correct answer is YES. 💙",
+
+            "I'll wait... 🥺💜"
+
+        ];
+
+
+        const index =
+            Math.min(
+                loveNoClicks - 1,
+                messages.length - 1
+            );
+
+
+        hint.textContent =
+            messages[index];
+
+    }
+);
+
+
+/* =====================================================
+   💜 PAGE 3 — YES
+===================================================== */
+
+document.getElementById(
+    "loveYes"
+).addEventListener(
+    "click",
+    function() {
+
+        showPage(4);
+
+        createConfettiBurst();
+
+    }
+);
+
+
+/* =====================================================
+   🎉 CONFETTI
+===================================================== */
+
+function createConfetti() {
+
+    const container =
+        document.getElementById(
+            "confetti"
+        );
+
+
+    const piece =
+        document.createElement(
+            "div"
+        );
+
+
+    piece.className =
+        "confetti-piece";
+
+
+    const colors = [
+
+        "#8fd3ff",
+        "#a98ce0",
+        "#cdb7f5",
+        "#b9e8ff",
+        "#ffffff",
+        "#739edb"
+
+    ];
+
+
+    piece.style.background =
+        colors[
+            Math.floor(
+                Math.random() *
+                colors.length
+            )
+        ];
+
+
+    piece.style.left =
+        Math.random() * 100 + "vw";
+
+
+    piece.style.width =
+        Math.random() * 7 + 5 + "px";
+
+
+    piece.style.height =
+        Math.random() * 10 + 8 + "px";
+
+
+    piece.style.animationDuration =
+        Math.random() * 4 + 4 + "s";
+
+
+    container.appendChild(
+        piece
+    );
+
+
+    setTimeout(
+        function() {
+
+            piece.remove();
+
+        },
+        9000
+    );
+
+}
+
+
+/* =====================================================
+   🎊 START CONTINUOUS CONFETTI
+===================================================== */
+
+function startConfetti() {
+
+    if (confettiStarted) {
+        return;
+    }
+
+
+    confettiStarted = true;
+
+
+    setInterval(
+        function() {
+
+            createConfetti();
+
+        },
+        180
+    );
+
+
+    /* Initial burst */
+
+    for (
+        let i = 0;
+        i < 60;
+        i++
+    ) {
+
+        setTimeout(
+            function() {
+
+                createConfetti();
+
+            },
+            i * 25
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   🎊 FINAL CONFETTI
+===================================================== */
+
+function createConfettiBurst() {
+
+    for (
+        let i = 0;
+        i < 120;
+        i++
+    ) {
+
+        setTimeout(
+            function() {
+
+                createConfetti();
+
+            },
+            i * 12
+        );
+
+    }
+
+}
+
+</script>
 
 
 </body>
