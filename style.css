@@ -1632,3 +1632,45 @@ h2 {
     }
 
 }
+/* =========================================
+   LOVE HEART PULSE
+========================================= */
+
+.heart-icon {
+
+    animation:
+        loveHeartPulse 2.2s ease-in-out infinite;
+
+}
+
+
+@keyframes loveHeartPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        filter:
+            drop-shadow(
+                0 5px 15px
+                rgba(105, 67, 160, 0.2)
+            );
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+
+        filter:
+            drop-shadow(
+                0 8px 25px
+                rgba(105, 67, 160, 0.35)
+            );
+
+    }
+
+}
