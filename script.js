@@ -1,205 +1,81 @@
 ```javascript
-/* =====================================================
-   💙 MY LOVE — BIRTHDAY WEBSITE
-   Complete Final script.js
-   ===================================================== */
+/* ==========================================
+   💙 MY LOVE - FINAL SCRIPT.JS
+   ========================================== */
 
 
-/* =====================================================
-   🎀 PAGE NAVIGATION
-   ===================================================== */
-
-/*
-   Shows one page at a time.
-
-   Page 1 → Page 2 → Page 3 → Page 4
-
-   The website does NOT scroll between pages.
-*/
+/* ==========================================
+   PAGE NAVIGATION
+   ========================================== */
 
 function goToPage(pageNumber) {
 
     const pages = document.querySelectorAll(".page");
 
-    /* Hide every page */
-
     pages.forEach(function(page) {
-
         page.classList.remove("active");
-
     });
 
-
-    /* Find the requested page */
-
-    const nextPage = document.getElementById(
+    const selectedPage = document.getElementById(
         "page" + pageNumber
     );
 
-
-    /* Show the requested page */
-
-    if (nextPage) {
-
-        nextPage.classList.add("active");
-
+    if (selectedPage) {
+        selectedPage.classList.add("active");
     }
-
 }
 
 
-/* =====================================================
+/* ==========================================
    🎂 PAGE 1
-   "IS TODAY YOUR BIRTHDAY?"
-   ===================================================== */
-
-
-/*
-   Number of times NO has been clicked.
-*/
+   BIRTHDAY QUESTION
+   ========================================== */
 
 let birthdayNoClicks = 0;
 
-
-/*
-   YES — PAGE 1
-*/
-
-function birthdayYes() {
-
-    /* Move to Page 2 */
-
-    goToPage(2);
-
-
-    /* Start continuous confetti */
-
-    startConfetti();
-
-
-    /* ================================================
-       🎵 START YOUR MUSIC
-       ================================================ */
-
-    const music = document.getElementById(
-        "birthdayMusic"
-    );
-
-
-    if (music) {
-
-        /*
-           Set a comfortable volume.
-           0 = silent
-           1 = maximum
-        */
-
-        music.volume = 0.7;
-
-
-        /*
-           Start the music.
-
-           This happens after the user clicks
-           YES, which is important because
-           browsers usually block audio that
-           starts without user interaction.
-        */
-
-        const playPromise = music.play();
-
-
-        /*
-           Handle browsers that return
-           a Promise from play().
-        */
-
-        if (playPromise !== undefined) {
-
-            playPromise.catch(function(error) {
-
-                console.log(
-                    "Music could not start:",
-                    error
-                );
-
-            });
-
-        }
-
-    }
-
-}
-
-
-/*
-   NO — PAGE 1
-*/
 
 function birthdayNo() {
 
     birthdayNoClicks++;
 
-
-    /* Get buttons */
-
     const yesButton =
-        document.getElementById(
-            "yesBirthday"
-        );
-
+        document.getElementById("yesBirthday");
 
     const noButton =
-        document.getElementById(
-            "noBirthday"
-        );
-
-
-    /* Get hint text */
+        document.getElementById("noBirthday");
 
     const hint =
-        document.getElementById(
-            "birthdayHint"
-        );
+        document.getElementById("birthdayHint");
 
 
-    /* ================================================
-       💙 MAKE YES BIGGER
-       ================================================ */
+    /* Make YES bigger */
 
-    const yesScale =
+    const newSize =
         1 + (birthdayNoClicks * 0.25);
 
-
     yesButton.style.transform =
-        "scale(" + yesScale + ")";
+        "scale(" + newSize + ")";
 
 
-    /*
-       Keep YES above the other button.
-    */
+    /* Keep YES above everything */
 
-    yesButton.style.zIndex = "10";
+    yesButton.style.position = "relative";
+    yesButton.style.zIndex = "100";
 
 
-    /* ================================================
-       💜 MAKE NO SMALLER
-       ================================================ */
+    /* Make NO slightly smaller */
 
-    const noScale =
+    const noSize =
         Math.max(
             0.65,
             1 - (birthdayNoClicks * 0.08)
         );
 
-
     noButton.style.transform =
-        "scale(" + noScale + ")";
+        "scale(" + noSize + ")";
 
 
-    /* ================================================
-       🥺 FUNNY MESSAGES
-       ================================================ */
+    /* Funny messages */
 
     const messages = [
 
@@ -207,25 +83,20 @@ function birthdayNo() {
 
         "Motta... think again. 😭",
 
-        "That doesn't seem right... 💙",
+        "Try again, my love. 💙",
 
-        "The YES button is waiting for you. 😂",
+        "You know the answer is YES. 🥺",
 
-        "It's getting bigger... 👀",
+        "The YES button is getting bigger! 😂",
 
-        "Okay, you leave me no choice. 😭💜",
+        "Why are you doing this to me? 😭💜",
 
-        "JUST SAY YES ALREADY! 😂",
+        "JUST SAY YES! 😂",
 
-        "You know the answer is YES. 🥺💙"
+        "Okay... the YES button wins. 💙"
 
     ];
 
-
-    /*
-       Stop the array from going
-       beyond its last message.
-    */
 
     const messageIndex =
         Math.min(
@@ -240,65 +111,60 @@ function birthdayNo() {
 }
 
 
-/* =====================================================
-   🎉 PAGE 2
-   BIRTHDAY CELEBRATION
-   ===================================================== */
+/* ==========================================
+   💙 PAGE 1 YES
+   ========================================== */
 
-/*
-   The CONTINUE button in index.html uses:
+function birthdayYes() {
 
-       onclick="goToPage(3)"
+    /* Go to Page 2 */
 
-   So no separate function is needed here.
-*/
+    goToPage(2);
 
 
-/* =====================================================
-   💜 PAGE 3
-   "DO YOU LOVE ME?"
-   ===================================================== */
+    /* Start confetti */
+
+    startConfetti();
 
 
-/*
-   Number of times NO is clicked.
-*/
+    /* Start music */
 
-let loveNoClicks = 0;
-
-
-/*
-   YES — PAGE 3
-*/
-
-function loveYes() {
-
-    /*
-       Go to the final page.
-    */
-
-    goToPage(4);
+    const music =
+        document.getElementById(
+            "birthdayMusic"
+        );
 
 
-    /*
-       Create a big celebration.
-    */
+    if (music) {
 
-    createConfettiBurst();
+        music.volume = 0.7;
+
+        music.play().catch(function(error) {
+
+            console.log(
+                "Music could not start:",
+                error
+            );
+
+        });
+
+    }
 
 }
 
 
-/*
-   NO — PAGE 3
-*/
+/* ==========================================
+   💜 PAGE 3
+   DO YOU LOVE ME?
+   ========================================== */
+
+let loveNoClicks = 0;
+
 
 function loveNo() {
 
     loveNoClicks++;
 
-
-    /* Get YES button */
 
     const yesButton =
         document.querySelector(
@@ -306,42 +172,55 @@ function loveNo() {
         );
 
 
-    /* Get response message */
-
     const hint =
         document.getElementById(
             "loveHint"
         );
 
 
-    /* ================================================
-       💙 RESPONSES TO NO
-       ================================================ */
+    /* Make YES bigger */
+
+    const newSize =
+        Math.min(
+            1 + (loveNoClicks * 0.15),
+            2
+        );
+
+
+    yesButton.style.transform =
+        "scale(" + newSize + ")";
+
+
+    yesButton.style.position =
+        "relative";
+
+
+    yesButton.style.zIndex =
+        "100";
+
+
+    /* Messages */
 
     const messages = [
 
         "Hmm... try again. 🥺",
 
-        "I don't think you meant that. 😭",
+        "I don't believe you. 😭",
 
         "Wrong answer, my love. 💜",
 
-        "You have one more chance... 👀",
+        "Are you really sure? 👀",
 
-        "Motta pleaseeeee. 🥺💙",
+        "Motta pleaseeee. 🥺",
 
-        "I KNOW YOU LOVE ME. 😂💜",
+        "I KNOW YOU LOVE ME! 😂💙",
 
-        "I'm waiting for the correct answer... 💙",
+        "The correct answer is YES. 💜",
 
-        "YES is looking very beautiful right now. 😭💜"
+        "I'll wait... 🥺💙"
 
     ];
 
-
-    /*
-       Select message.
-    */
 
     const messageIndex =
         Math.min(
@@ -353,67 +232,37 @@ function loveNo() {
     hint.textContent =
         messages[messageIndex];
 
-
-    /* ================================================
-       💜 MAKE YES BIGGER
-       ================================================ */
-
-    const yesScale =
-        Math.min(
-            1 + (loveNoClicks * 0.12),
-            1.8
-        );
+}
 
 
-    yesButton.style.transform =
-        "scale(" + yesScale + ")";
+/* ==========================================
+   💜 PAGE 3 YES
+   ========================================== */
 
+function loveYes() {
 
-    /*
-       Keep YES above NO.
-    */
+    goToPage(4);
 
-    yesButton.style.zIndex = "10";
+    createConfettiBurst();
 
 }
 
 
-/* =====================================================
-   🎊 CONFETTI SYSTEM
-   ===================================================== */
-
-
-/*
-   Prevent multiple continuous
-   confetti loops.
-*/
+/* ==========================================
+   🎉 CONTINUOUS CONFETTI
+   ========================================== */
 
 let confettiStarted = false;
 
 
-/*
-   Start continuous confetti.
-*/
-
 function startConfetti() {
 
-    /*
-       Don't start it twice.
-    */
-
     if (confettiStarted) {
-
         return;
-
     }
-
 
     confettiStarted = true;
 
-
-    /*
-       Find confetti container.
-    */
 
     const container =
         document.getElementById(
@@ -421,158 +270,19 @@ function startConfetti() {
         );
 
 
-    /*
-       Safety check.
-    */
-
     if (!container) {
-
         return;
-
     }
 
 
-    /*
-       Create one confetti piece.
-    */
+    setInterval(function() {
 
-    function createConfetti() {
+        createConfettiPiece();
 
-        const confetti =
-            document.createElement(
-                "div"
-            );
+    }, 180);
 
 
-        /*
-           CSS class.
-        */
-
-        confetti.classList.add(
-            "confetti"
-        );
-
-
-        /*
-           Your soft blue/purple theme.
-        */
-
-        const colors = [
-
-            "#9ddcff",
-
-            "#b9a1ff",
-
-            "#d9c7ff",
-
-            "#bfeeff",
-
-            "#ffffff",
-
-            "#8fbfff"
-
-        ];
-
-
-        /*
-           Random color.
-        */
-
-        confetti.style.backgroundColor =
-            colors[
-                Math.floor(
-                    Math.random() *
-                    colors.length
-                )
-            ];
-
-
-        /*
-           Random horizontal position.
-        */
-
-        confetti.style.left =
-            Math.random() * 100 + "vw";
-
-
-        /*
-           Random falling speed.
-        */
-
-        confetti.style.animationDuration =
-            (
-                Math.random() * 4 + 4
-            ) + "s";
-
-
-        /*
-           Random width.
-        */
-
-        confetti.style.width =
-            (
-                Math.random() * 7 + 5
-            ) + "px";
-
-
-        /*
-           Random height.
-        */
-
-        confetti.style.height =
-            (
-                Math.random() * 10 + 8
-            ) + "px";
-
-
-        /*
-           Random rotation.
-        */
-
-        confetti.style.transform =
-            "rotate(" +
-            (
-                Math.random() * 360
-            ) +
-            "deg)";
-
-
-        /*
-           Add to page.
-        */
-
-        container.appendChild(
-            confetti
-        );
-
-
-        /*
-           Remove after animation.
-        */
-
-        setTimeout(function() {
-
-            confetti.remove();
-
-        }, 9000);
-
-    }
-
-
-    /*
-       Keep creating confetti.
-    */
-
-    setInterval(
-        createConfetti,
-        150
-    );
-
-
-    /*
-       Create a large celebration
-       when Page 2 opens.
-    */
+    /* Initial celebration */
 
     for (
         let i = 0;
@@ -580,27 +290,22 @@ function startConfetti() {
         i++
     ) {
 
-        setTimeout(
-            createConfetti,
-            i * 30
-        );
+        setTimeout(function() {
+
+            createConfettiPiece();
+
+        }, i * 30);
 
     }
 
 }
 
 
-/* =====================================================
-   🎉 FINAL CONFETTI BURST
-   ===================================================== */
+/* ==========================================
+   🎊 CREATE ONE CONFETTI PIECE
+   ========================================== */
 
-
-/*
-   This happens when he finally
-   clicks YES on Page 3.
-*/
-
-function createConfettiBurst() {
+function createConfettiPiece() {
 
     const container =
         document.getElementById(
@@ -608,20 +313,75 @@ function createConfettiBurst() {
         );
 
 
-    /*
-       Safety check.
-    */
-
     if (!container) {
-
         return;
-
     }
 
 
-    /*
-       Create 100 pieces.
-    */
+    const confetti =
+        document.createElement("div");
+
+
+    confetti.className =
+        "confetti";
+
+
+    const colors = [
+
+        "#9ddcff",
+        "#b9a1ff",
+        "#d9c7ff",
+        "#bfeeff",
+        "#ffffff",
+        "#8fbfff"
+
+    ];
+
+
+    confetti.style.backgroundColor =
+        colors[
+            Math.floor(
+                Math.random() *
+                colors.length
+            )
+        ];
+
+
+    confetti.style.left =
+        Math.random() * 100 + "vw";
+
+
+    confetti.style.width =
+        Math.random() * 7 + 5 + "px";
+
+
+    confetti.style.height =
+        Math.random() * 10 + 8 + "px";
+
+
+    confetti.style.animationDuration =
+        Math.random() * 4 + 4 + "s";
+
+
+    container.appendChild(
+        confetti
+    );
+
+
+    setTimeout(function() {
+
+        confetti.remove();
+
+    }, 9000);
+
+}
+
+
+/* ==========================================
+   🎊 BIG FINAL CONFETTI
+   ========================================== */
+
+function createConfettiBurst() {
 
     for (
         let i = 0;
@@ -631,109 +391,7 @@ function createConfettiBurst() {
 
         setTimeout(function() {
 
-
-            /*
-               Create confetti.
-            */
-
-            const confetti =
-                document.createElement(
-                    "div"
-                );
-
-
-            confetti.classList.add(
-                "confetti"
-            );
-
-
-            /*
-               Soft blue/purple colors.
-            */
-
-            const colors = [
-
-                "#9ddcff",
-
-                "#b9a1ff",
-
-                "#d9c7ff",
-
-                "#bfeeff",
-
-                "#ffffff",
-
-                "#8fbfff"
-
-            ];
-
-
-            /*
-               Random color.
-            */
-
-            confetti.style.backgroundColor =
-                colors[
-                    Math.floor(
-                        Math.random() *
-                        colors.length
-                    )
-                ];
-
-
-            /*
-               Random horizontal position.
-            */
-
-            confetti.style.left =
-                Math.random() * 100 + "vw";
-
-
-            /*
-               Random speed.
-            */
-
-            confetti.style.animationDuration =
-                (
-                    Math.random() * 3 + 3
-                ) + "s";
-
-
-            /*
-               Random size.
-            */
-
-            confetti.style.width =
-                (
-                    Math.random() * 8 + 5
-                ) + "px";
-
-
-            confetti.style.height =
-                (
-                    Math.random() * 12 + 8
-                ) + "px";
-
-
-            /*
-               Add it.
-            */
-
-            container.appendChild(
-                confetti
-            );
-
-
-            /*
-               Remove it later.
-            */
-
-            setTimeout(function() {
-
-                confetti.remove();
-
-            }, 7000);
-
+            createConfettiPiece();
 
         }, i * 15);
 
@@ -742,57 +400,9 @@ function createConfettiBurst() {
 }
 
 
-/* =====================================================
-   🎵 MUSIC HELPER
-   ===================================================== */
-
-
-/*
-   This function can be used later
-   if you want a music button.
-
-   It is not required right now,
-   but it makes the music system
-   easier to control.
-*/
-
-function toggleMusic() {
-
-    const music =
-        document.getElementById(
-            "birthdayMusic"
-        );
-
-
-    if (!music) {
-
-        return;
-
-    }
-
-
-    if (music.paused) {
-
-        music.play();
-
-    } else {
-
-        music.pause();
-
-    }
-
-}
-
-
-/* =====================================================
+/* ==========================================
    🌸 PAGE LOAD
-   ===================================================== */
-
-
-/*
-   When the website opens,
-   make sure Page 1 is displayed.
-*/
+   ========================================== */
 
 document.addEventListener(
     "DOMContentLoaded",
