@@ -72,20 +72,19 @@ let birthdayNoClicks = 0;
 
 function birthdayYes() {
 
-    /*
-        Move to Page 2.
-    */
-
     goToPage(2);
-
-
-    /*
-        Start the birthday confetti.
-    */
 
     startConfetti();
 
-}
+    const music =
+        document.getElementById("birthdayMusic");
+
+    if (music) {
+        music.play().catch(function() {
+            console.log("Music playback was blocked.");
+        });
+    }
+
 
 
 /*
