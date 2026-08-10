@@ -1,1 +1,843 @@
+/* =========================================
+   MY LOVE — BIRTHDAY WEBSITE
+   STYLE SHEET
+========================================= */
 
+
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    /*
+        Soft light-blue + light-purple background
+    */
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 255, 255, 0.95),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(255, 255, 255, 0.75),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #dff5ff,
+            #eee6ff
+        );
+
+    color: #173b70;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   MAIN WEBSITE
+========================================= */
+
+.website {
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   BACKGROUND DECORATIONS
+========================================= */
+
+.background-decoration {
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.5;
+
+    filter: blur(2px);
+}
+
+
+/* Blue decoration */
+
+.decoration-one {
+    width: 280px;
+    height: 280px;
+
+    background: #bdeaff;
+
+    top: -120px;
+    left: -100px;
+}
+
+
+/* Purple decoration */
+
+.decoration-two {
+    width: 330px;
+    height: 330px;
+
+    background: #ddccff;
+
+    bottom: -150px;
+    right: -120px;
+}
+
+
+/* =========================================
+   PAGE SYSTEM
+========================================= */
+
+/*
+    Every page fills the entire screen.
+
+    This means the user does NOT scroll
+    through the birthday website.
+
+    Only one page is visible at a time.
+*/
+
+.page {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(0.96);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        visibility 0.6s ease;
+
+    overflow-y: auto;
+}
+
+
+/*
+    The currently active page.
+*/
+
+.page.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.card {
+    width: min(650px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    /*
+        Glass effect
+    */
+
+    background: rgba(255, 255, 255, 0.82);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    /*
+        Soft border
+    */
+
+    border: 2px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 35px;
+
+    /*
+        Beautiful soft shadow
+    */
+
+    box-shadow:
+        0 25px 60px rgba(65, 78, 130, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    position: relative;
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+h1,
+h2 {
+    font-family: "Baloo 2", cursive;
+}
+
+
+/*
+    Dark blue heading
+*/
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+
+    line-height: 1.1;
+
+    color: #193f7a;
+
+    margin: 10px 0 15px;
+}
+
+
+/*
+    Dark purple heading
+*/
+
+h2 {
+    color: #533486;
+
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   SMALL TEXT
+========================================= */
+
+.small-text {
+    color: #765da8;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+
+.sub-text {
+    color: #60749b;
+
+    font-size: 0.95rem;
+
+    margin: 10px auto 25px;
+
+    max-width: 480px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CUTE ICONS
+========================================= */
+
+.cute-icon,
+.birthday-crown,
+.heart-icon,
+.final-heart {
+
+    font-size: 4rem;
+
+    margin-bottom: 15px;
+
+    animation:
+        floating 3s ease-in-out infinite;
+}
+
+
+/*
+    Floating animation
+*/
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================================
+   BUTTON CONTAINER
+========================================= */
+
+.question-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   ALL BUTTONS
+========================================= */
+
+.btn {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        font-size 0.25s ease;
+
+    box-shadow:
+        0 10px 25px rgba(60, 75, 130, 0.15);
+}
+
+
+/*
+    Button hover effect
+*/
+
+.btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(60, 75, 130, 0.22);
+}
+
+
+/*
+    Button click effect
+*/
+
+.btn:active {
+
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   PAGE 1 BUTTONS
+========================================= */
+
+
+/*
+    YES = blue
+*/
+
+.yes-btn {
+
+    background: #bde6ff;
+
+    color: #173d75;
+}
+
+
+/*
+    NO = purple
+*/
+
+.no-btn {
+
+    background: #ddccff;
+
+    color: #533486;
+}
+
+
+/* =========================================
+   CONTINUE BUTTON
+========================================= */
+
+.continue-btn {
+
+    background: #bde6ff;
+
+    color: #173d75;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   PAGE 3 BUTTONS
+========================================= */
+
+.yes-love-btn {
+
+    background: #d9c4ff;
+
+    color: #4c2b82;
+}
+
+
+.no-love-btn {
+
+    background: #c8edff;
+
+    color: #173d75;
+}
+
+
+/* =========================================
+   LITTLE HINT
+========================================= */
+
+.little-hint {
+
+    min-height: 25px;
+
+    margin-top: 18px;
+
+    color: #72599f;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    transition: opacity 0.3s ease;
+}
+
+
+/* =========================================
+   PAGE 2 — BIRTHDAY
+========================================= */
+
+.celebration-card {
+
+    border-color:
+        rgba(185, 220, 255, 0.7);
+}
+
+
+/*
+    Birthday heading
+*/
+
+.birthday-title {
+
+    color: #1b4c91;
+
+    letter-spacing: 1px;
+}
+
+
+/*
+    "I REALLY LOVE YOU"
+*/
+
+.love-highlight {
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+
+    color: #613d91;
+
+    margin: 10px 0;
+}
+
+
+/*
+    Birthday decorations
+*/
+
+.birthday-decoration {
+
+    font-size: 2rem;
+
+    letter-spacing: 12px;
+
+    margin: 20px 0;
+}
+
+
+/* =========================================
+   PAGE 3 — LOVE MESSAGE
+========================================= */
+
+.love-card {
+
+    max-height: 88vh;
+}
+
+
+/*
+    Love paragraphs
+*/
+
+.love-message {
+
+    color: #4f6080;
+
+    line-height: 1.8;
+
+    font-size: 0.95rem;
+
+    margin: 20px auto;
+
+    max-width: 540px;
+}
+
+
+.love-message p {
+
+    margin-bottom: 15px;
+}
+
+
+/*
+    Special final sentence
+*/
+
+.special-line {
+
+    font-family: "Baloo 2", cursive;
+
+    color: #654291;
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+}
+
+
+/*
+    Question section
+*/
+
+.love-question {
+
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px dashed #c9b8e8;
+}
+
+
+.love-question h2 {
+
+    color: #50327f;
+
+    font-size: 1.8rem;
+}
+
+
+/* =========================================
+   PAGE 4 — FINAL MESSAGE
+========================================= */
+
+.final-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(246, 239, 255, 0.92)
+        );
+}
+
+
+/*
+    Final message
+*/
+
+.final-message {
+
+    max-width: 530px;
+
+    margin: 20px auto;
+
+    color: #53627d;
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+}
+
+
+.final-message p {
+
+    margin-bottom: 20px;
+}
+
+
+.final-message h2 {
+
+    color: #4d3180;
+
+    font-size:
+        clamp(1.5rem, 5vw, 2.3rem);
+}
+
+
+/*
+    Forever message
+*/
+
+.forever {
+
+    font-family: "Baloo 2", cursive;
+
+    color: #376197;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+}
+
+
+/*
+    Final hearts
+*/
+
+.final-decoration {
+
+    font-size: 1.5rem;
+
+    letter-spacing: 10px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+#confetti-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 10;
+}
+
+
+.confetti {
+
+    position: absolute;
+
+    width: 9px;
+
+    height: 15px;
+
+    top: -30px;
+
+    opacity: 0.9;
+
+    animation:
+        confettiFall linear forwards;
+}
+
+
+/*
+    Confetti falling animation
+*/
+
+@keyframes confettiFall {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+    }
+}
+
+
+/* =========================================
+   CUSTOM SCROLLBAR
+========================================= */
+
+.card::-webkit-scrollbar {
+
+    width: 6px;
+}
+
+
+.card::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+.card::-webkit-scrollbar-thumb {
+
+    background: #cbb8ed;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================
+   MOBILE VERSION
+========================================= */
+
+@media (max-width: 600px) {
+
+    .page {
+
+        padding: 15px;
+
+    }
+
+
+    .card {
+
+        padding: 38px 22px;
+
+        border-radius: 28px;
+
+        max-height: 92vh;
+
+    }
+
+
+    h1 {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    h2 {
+
+        font-size: 1.7rem;
+
+    }
+
+
+    .cute-icon,
+    .birthday-crown,
+    .heart-icon,
+    .final-heart {
+
+        font-size: 3.2rem;
+
+    }
+
+
+    /*
+        On phones the buttons
+        become easier to tap.
+    */
+
+    .question-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .btn {
+
+        width: 100%;
+
+        max-width: 240px;
+
+    }
+
+
+    .love-message {
+
+        font-size: 0.9rem;
+
+        line-height: 1.7;
+
+    }
+
+
+    .final-message {
+
+        font-size: 0.9rem;
+
+    }
+
+}
