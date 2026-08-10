@@ -1,74 +1,130 @@
-/* =========================================
-   MY LOVE — BIRTHDAY WEBSITE
-   STYLE SHEET
-========================================= */
+```css
+/* =====================================================
+   💙 MY LOVE — BIRTHDAY WEBSITE
+   COMPLETE FINAL STYLE.CSS
+   ===================================================== */
 
 
-/* =========================================
-   BASIC RESET
-========================================= */
+/* =====================================================
+   🌸 GOOGLE FONT FALLBACK
+   ===================================================== */
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
+
+/* =====================================================
+   🌐 BASIC PAGE SETTINGS
+   ===================================================== */
+
 html,
 body {
+
     width: 100%;
+
     min-height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
 }
 
+
 body {
+
     font-family: "Poppins", sans-serif;
 
-    /*
-        Soft light-blue + light-purple background
-    */
+    color: #273b70;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff4ff 0%,
+            #eaf2ff 45%,
+            #eee4ff 100%
+        );
+
+}
+
+
+/* =====================================================
+   🎨 COLOR VARIABLES
+   ===================================================== */
+
+:root {
+
+    --light-blue: #dff4ff;
+
+    --soft-blue: #bfe8ff;
+
+    --blue: #74bce8;
+
+    --dark-blue: #274879;
+
+    --deep-blue: #1e3766;
+
+    --light-purple: #eee4ff;
+
+    --soft-purple: #d8c4ff;
+
+    --purple: #a98cdb;
+
+    --dark-purple: #60458f;
+
+    --deep-purple: #4c3475;
+
+    --white: #ffffff;
+
+    --soft-white: rgba(255, 255, 255, 0.78);
+
+    --shadow:
+        rgba(54, 75, 125, 0.16);
+
+}
+
+
+/* =====================================================
+   ✨ BACKGROUND
+   ===================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(255, 255, 255, 0.95),
+            circle at 15% 20%,
+            rgba(170, 225, 255, 0.45),
             transparent 30%
         ),
+
         radial-gradient(
-            circle at 90% 90%,
-            rgba(255, 255, 255, 0.75),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #dff5ff,
-            #eee6ff
+            circle at 85% 75%,
+            rgba(213, 187, 255, 0.42),
+            transparent 32%
         );
 
-    color: #173b70;
-
-    overflow: hidden;
 }
 
 
-/* =========================================
-   MAIN WEBSITE
-========================================= */
-
-.website {
-    min-height: 100vh;
-    width: 100%;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-
-/* =========================================
-   BACKGROUND DECORATIONS
-========================================= */
+/* =====================================================
+   💙 ROMANTIC GLOWING DECORATIONS
+   ===================================================== */
 
 .background-decoration {
+
     position: fixed;
 
     border-radius: 50%;
@@ -77,778 +133,46 @@ body {
 
     z-index: 0;
 
-    opacity: 0.5;
+    filter: blur(5px);
 
-    filter: blur(2px);
 }
 
-
-/* Blue decoration */
 
 .decoration-one {
-    width: 280px;
-    height: 280px;
 
-    background: #bdeaff;
+    width: 180px;
 
-    top: -120px;
-    left: -100px;
-}
+    height: 180px;
 
+    top: -70px;
 
-/* Purple decoration */
-
-.decoration-two {
-    width: 330px;
-    height: 330px;
-
-    background: #ddccff;
-
-    bottom: -150px;
-    right: -120px;
-}
-
-
-/* =========================================
-   PAGE SYSTEM
-========================================= */
-
-/*
-    Every page fills the entire screen.
-
-    This means the user does NOT scroll
-    through the birthday website.
-
-    Only one page is visible at a time.
-*/
-
-.page {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform: scale(0.96);
-
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
-        visibility 0.6s ease;
-
-    overflow-y: auto;
-}
-
-
-/*
-    The currently active page.
-*/
-
-.page.active {
-    opacity: 1;
-
-    visibility: visible;
-
-    transform: scale(1);
-}
-
-
-/* =========================================
-   MAIN CARD
-========================================= */
-
-.card {
-    width: min(650px, 100%);
-
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    padding: 55px 45px;
-
-    text-align: center;
-
-    /*
-        Glass effect
-    */
-
-    background: rgba(255, 255, 255, 0.82);
-
-    backdrop-filter: blur(18px);
-
-    -webkit-backdrop-filter: blur(18px);
-
-    /*
-        Soft border
-    */
-
-    border: 2px solid rgba(255, 255, 255, 0.85);
-
-    border-radius: 35px;
-
-    /*
-        Beautiful soft shadow
-    */
-
-    box-shadow:
-        0 25px 60px rgba(65, 78, 130, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-
-    position: relative;
-}
-
-
-/* =========================================
-   HEADINGS
-========================================= */
-
-h1,
-h2 {
-    font-family: "Baloo 2", cursive;
-}
-
-
-/*
-    Dark blue heading
-*/
-
-h1 {
-    font-size: clamp(2rem, 6vw, 3.5rem);
-
-    line-height: 1.1;
-
-    color: #193f7a;
-
-    margin: 10px 0 15px;
-}
-
-
-/*
-    Dark purple heading
-*/
-
-h2 {
-    color: #533486;
-
-    font-size: clamp(1.6rem, 5vw, 2.5rem);
-
-    margin-bottom: 15px;
-}
-
-
-/* =========================================
-   SMALL TEXT
-========================================= */
-
-.small-text {
-    color: #765da8;
-
-    font-size: 0.95rem;
-
-    font-weight: 600;
-
-    letter-spacing: 0.5px;
-}
-
-
-.sub-text {
-    color: #60749b;
-
-    font-size: 0.95rem;
-
-    margin: 10px auto 25px;
-
-    max-width: 480px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================
-   CUTE ICONS
-========================================= */
-
-.cute-icon,
-.birthday-crown,
-.heart-icon,
-.final-heart {
-
-    font-size: 4rem;
-
-    margin-bottom: 15px;
-
-    animation:
-        floating 3s ease-in-out infinite;
-}
-
-
-/*
-    Floating animation
-*/
-
-@keyframes floating {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-
-/* =========================================
-   BUTTON CONTAINER
-========================================= */
-
-.question-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 18px;
-
-    flex-wrap: wrap;
-
-    margin-top: 25px;
-}
-
-
-/* =========================================
-   ALL BUTTONS
-========================================= */
-
-.btn {
-
-    border: none;
-
-    cursor: pointer;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 1rem;
-
-    font-weight: 700;
-
-    padding: 14px 30px;
-
-    border-radius: 50px;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        font-size 0.25s ease;
-
-    box-shadow:
-        0 10px 25px rgba(60, 75, 130, 0.15);
-}
-
-
-/*
-    Button hover effect
-*/
-
-.btn:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 15px 30px rgba(60, 75, 130, 0.22);
-}
-
-
-/*
-    Button click effect
-*/
-
-.btn:active {
-
-    transform: scale(0.96);
-}
-
-
-/* =========================================
-   PAGE 1 BUTTONS
-========================================= */
-
-
-/*
-    YES = blue
-*/
-
-.yes-btn {
-
-    background: #bde6ff;
-
-    color: #173d75;
-}
-
-
-/*
-    NO = purple
-*/
-
-.no-btn {
-
-    background: #ddccff;
-
-    color: #533486;
-}
-
-
-/* =========================================
-   CONTINUE BUTTON
-========================================= */
-
-.continue-btn {
-
-    background: #bde6ff;
-
-    color: #173d75;
-
-    margin-top: 25px;
-}
-
-
-/* =========================================
-   PAGE 3 BUTTONS
-========================================= */
-
-.yes-love-btn {
-
-    background: #d9c4ff;
-
-    color: #4c2b82;
-}
-
-
-.no-love-btn {
-
-    background: #c8edff;
-
-    color: #173d75;
-}
-
-
-/* =========================================
-   LITTLE HINT
-========================================= */
-
-.little-hint {
-
-    min-height: 25px;
-
-    margin-top: 18px;
-
-    color: #72599f;
-
-    font-size: 0.9rem;
-
-    font-weight: 600;
-
-    transition: opacity 0.3s ease;
-}
-
-
-/* =========================================
-   PAGE 2 — BIRTHDAY
-========================================= */
-
-.celebration-card {
-
-    border-color:
-        rgba(185, 220, 255, 0.7);
-}
-
-
-/*
-    Birthday heading
-*/
-
-.birthday-title {
-
-    color: #1b4c91;
-
-    letter-spacing: 1px;
-}
-
-
-/*
-    "I REALLY LOVE YOU"
-*/
-
-.love-highlight {
-
-    font-family: "Baloo 2", cursive;
-
-    font-size: 1.8rem;
-
-    font-weight: 700;
-
-    color: #613d91;
-
-    margin: 10px 0;
-}
-
-
-/*
-    Birthday decorations
-*/
-
-.birthday-decoration {
-
-    font-size: 2rem;
-
-    letter-spacing: 12px;
-
-    margin: 20px 0;
-}
-
-
-/* =========================================
-   PAGE 3 — LOVE MESSAGE
-========================================= */
-
-.love-card {
-
-    max-height: 88vh;
-}
-
-
-/*
-    Love paragraphs
-*/
-
-.love-message {
-
-    color: #4f6080;
-
-    line-height: 1.8;
-
-    font-size: 0.95rem;
-
-    margin: 20px auto;
-
-    max-width: 540px;
-}
-
-
-.love-message p {
-
-    margin-bottom: 15px;
-}
-
-
-/*
-    Special final sentence
-*/
-
-.special-line {
-
-    font-family: "Baloo 2", cursive;
-
-    color: #654291;
-
-    font-size: 1.15rem;
-
-    font-weight: 700;
-}
-
-
-/*
-    Question section
-*/
-
-.love-question {
-
-    margin-top: 25px;
-
-    padding-top: 25px;
-
-    border-top:
-        1px dashed #c9b8e8;
-}
-
-
-.love-question h2 {
-
-    color: #50327f;
-
-    font-size: 1.8rem;
-}
-
-
-/* =========================================
-   PAGE 4 — FINAL MESSAGE
-========================================= */
-
-.final-card {
+    left: -50px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.92),
-            rgba(246, 239, 255, 0.92)
-        );
+        rgba(157, 220, 255, 0.45);
+
 }
 
 
-/*
-    Final message
-*/
+.decoration-two {
 
-.final-message {
+    width: 220px;
 
-    max-width: 530px;
+    height: 220px;
 
-    margin: 20px auto;
+    right: -80px;
 
-    color: #53627d;
+    bottom: -80px;
 
-    line-height: 1.8;
+    background:
+        rgba(199, 170, 245, 0.40);
 
-    font-size: 1rem;
 }
 
 
-.final-message p {
-
-    margin-bottom: 20px;
-}
-
-
-.final-message h2 {
-
-    color: #4d3180;
-
-    font-size:
-        clamp(1.5rem, 5vw, 2.3rem);
-}
-
-
-/*
-    Forever message
-*/
-
-.forever {
-
-    font-family: "Baloo 2", cursive;
-
-    color: #376197;
-
-    font-size: 1.1rem;
-
-    font-weight: 600;
-}
-
-
-/*
-    Final hearts
-*/
-
-.final-decoration {
-
-    font-size: 1.5rem;
-
-    letter-spacing: 10px;
-
-    margin-top: 25px;
-}
-
-
-/* =========================================
-   CONFETTI
-========================================= */
-
-#confetti-container {
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 10;
-}
-
-
-.confetti {
-
-    position: absolute;
-
-    width: 9px;
-
-    height: 15px;
-
-    top: -30px;
-
-    opacity: 0.9;
-
-    animation:
-        confettiFall linear forwards;
-}
-
-
-/*
-    Confetti falling animation
-*/
-
-@keyframes confettiFall {
-
-    0% {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-    }
-
-    100% {
-
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
-    }
-}
-
-
-/* =========================================
-   CUSTOM SCROLLBAR
-========================================= */
-
-.card::-webkit-scrollbar {
-
-    width: 6px;
-}
-
-
-.card::-webkit-scrollbar-track {
-
-    background: transparent;
-}
-
-
-.card::-webkit-scrollbar-thumb {
-
-    background: #cbb8ed;
-
-    border-radius: 20px;
-}
-
-
-/* =========================================
-   MOBILE VERSION
-========================================= */
-
-@media (max-width: 600px) {
-
-    .page {
-
-        padding: 15px;
-
-    }
-
-
-    .card {
-
-        padding: 38px 22px;
-
-        border-radius: 28px;
-
-        max-height: 92vh;
-
-    }
-
-
-    h1 {
-
-        font-size: 2.2rem;
-
-    }
-
-
-    h2 {
-
-        font-size: 1.7rem;
-
-    }
-
-
-    .cute-icon,
-    .birthday-crown,
-    .heart-icon,
-    .final-heart {
-
-        font-size: 3.2rem;
-
-    }
-
-
-    /*
-        On phones the buttons
-        become easier to tap.
-    */
-
-    .question-buttons {
-
-        flex-direction: column;
-
-    }
-
-
-    .btn {
-
-        width: 100%;
-
-        max-width: 240px;
-
-    }
-
-
-    .love-message {
-
-        font-size: 0.9rem;
-
-        line-height: 1.7;
-
-    }
-
-
-    .final-message {
-
-        font-size: 0.9rem;
-
-    }
-
-}
-/* =========================================
-   PREMIUM ROMANTIC BACKGROUND
-========================================= */
-
-
-/* =========================================
-   SOFT GLOWING BLOBS
-========================================= */
+/* =====================================================
+   🌈 SOFT GLOW
+   ===================================================== */
 
 .glow {
 
@@ -866,6 +190,7 @@ h2 {
 
     animation:
         glowMove 8s ease-in-out infinite alternate;
+
 }
 
 
@@ -880,6 +205,7 @@ h2 {
     top: 15%;
 
     left: 5%;
+
 }
 
 
@@ -891,17 +217,14 @@ h2 {
 
     background: #d3b9ff;
 
-    bottom: 5%;
-
     right: 5%;
 
+    bottom: 5%;
+
     animation-delay: 2s;
+
 }
 
-
-/* =========================================
-   GLOW MOVEMENT
-========================================= */
 
 @keyframes glowMove {
 
@@ -932,9 +255,9 @@ h2 {
 }
 
 
-/* =========================================
-   FLOATING HEARTS
-========================================= */
+/* =====================================================
+   💕 FLOATING HEARTS
+   ===================================================== */
 
 .floating-hearts {
 
@@ -947,6 +270,7 @@ h2 {
     pointer-events: none;
 
     z-index: 1;
+
 }
 
 
@@ -965,10 +289,6 @@ h2 {
 
 }
 
-
-/*
-    Different heart positions
-*/
 
 .floating-hearts span:nth-child(1) {
 
@@ -1058,10 +378,6 @@ h2 {
 }
 
 
-/* =========================================
-   HEART FLOAT ANIMATION
-========================================= */
-
 @keyframes heartFloat {
 
     0% {
@@ -1103,9 +419,9 @@ h2 {
 }
 
 
-/* =========================================
-   SPARKLES
-========================================= */
+/* =====================================================
+   ✨ SPARKLES
+   ===================================================== */
 
 .sparkles {
 
@@ -1135,8 +451,6 @@ h2 {
 
 }
 
-
-/* Different sparkle locations */
 
 .sparkles span:nth-child(1) {
 
@@ -1226,10 +540,6 @@ h2 {
 }
 
 
-/* =========================================
-   SPARKLE ANIMATION
-========================================= */
-
 @keyframes sparkle {
 
     0%,
@@ -1256,11 +566,123 @@ h2 {
 }
 
 
-/* =========================================
-   PREMIUM CARD HOVER
-========================================= */
+/* =====================================================
+   🌸 MAIN WEBSITE
+   ===================================================== */
+
+.website {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    height: 100vh;
+
+}
+
+
+/* =====================================================
+   📄 PAGE SYSTEM
+   ===================================================== */
+
+.page {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        scale(0.97)
+        translateY(10px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        visibility 0.6s ease;
+
+}
+
+
+.page.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        scale(1)
+        translateY(0);
+
+}
+
+
+/* =====================================================
+   💎 MAIN CARD
+   ===================================================== */
 
 .card {
+
+    position: relative;
+
+    width: min(680px, 92vw);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding:
+        45px
+        40px;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255, 255, 255, 0.78);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.95);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(65, 78, 130, 0.18),
+
+        0 8px 30px
+        rgba(99, 74, 150, 0.08),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.95);
 
     transition:
         transform 0.4s ease,
@@ -1275,8 +697,9 @@ h2 {
         translateY(-4px);
 
     box-shadow:
-        0 30px 70px
-        rgba(65, 78, 130, 0.20),
+
+        0 35px 80px
+        rgba(65, 78, 130, 0.22),
 
         inset 0 1px 0
         rgba(255, 255, 255, 0.95);
@@ -1284,362 +707,38 @@ h2 {
 }
 
 
-/* =========================================
-   BUTTON GLOW
-========================================= */
+/* =====================================================
+   🎂 ICONS
+   ===================================================== */
 
-.yes-btn,
-.continue-btn {
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-
-.yes-btn::before,
-.continue-btn::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: -100%;
-
-    width: 70%;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.7),
-            transparent
-        );
-
-    transform: skewX(-20deg);
-
-    animation:
-        buttonShine 3.5s infinite;
-
-}
-
-
-@keyframes buttonShine {
-
-    0% {
-
-        left: -100%;
-
-    }
-
-    45%,
-    100% {
-
-        left: 140%;
-
-    }
-
-}
-
-
-/* =========================================
-   HEART ICON GLOW
-========================================= */
-
+.cute-icon,
+.birthday-crown,
 .heart-icon,
 .final-heart {
 
-    filter:
-        drop-shadow(
-            0 5px 15px
-            rgba(105, 67, 160, 0.25)
-        );
-
-}
-
-
-/* =========================================
-   BIRTHDAY TITLE GLOW
-========================================= */
-
-.birthday-title {
-
-    text-shadow:
-        0 3px 15px
-        rgba(74, 132, 190, 0.18);
-
-}
-
-
-/* =========================================
-   MOBILE BACKGROUND
-========================================= */
-
-@media (max-width: 600px) {
-
-    .glow-blue {
-
-        width: 220px;
-
-        height: 220px;
-
-    }
-
-
-    .glow-purple {
-
-        width: 240px;
-
-        height: 240px;
-
-    }
-
-
-    .floating-hearts span {
-
-        font-size: 1.1rem;
-
-    }
-
-
-    .sparkles span {
-
-        font-size: 0.9rem;
-
-    }
-
-}
-/* =========================================
-   ROMANTIC LOVE MESSAGE REVEAL
-========================================= */
-
-.love-message {
-
     position: relative;
 
-}
+    font-size: 4rem;
 
+    margin-bottom: 10px;
 
-/*
-    Every paragraph starts invisible.
-*/
-
-.love-line {
-
-    opacity: 0;
-
-    transform:
-        translateY(18px);
-
-    animation:
-        loveReveal 1s ease forwards;
+    user-select: none;
 
 }
 
-
-/*
-    Reveal each line separately.
-*/
-
-.love-line:nth-child(1) {
-
-    animation-delay: 0.4s;
-
-}
-
-
-.love-line:nth-child(2) {
-
-    animation-delay: 1.2s;
-
-}
-
-
-.love-line:nth-child(3) {
-
-    animation-delay: 2s;
-
-}
-
-
-.love-line:nth-child(4) {
-
-    animation-delay: 2.8s;
-
-}
-
-
-.love-line:nth-child(5) {
-
-    animation-delay: 3.6s;
-
-}
-
-
-/*
-    Reveal animation.
-*/
-
-@keyframes loveReveal {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translateY(18px);
-
-        filter:
-            blur(5px);
-
-    }
-
-    100% {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-        filter:
-            blur(0);
-
-    }
-
-}
-
-
-/* =========================================
-   LOVE MESSAGE GLOW
-========================================= */
-
-.love-message::before {
-
-    content: "💜";
-
-    position: absolute;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    font-size: 10rem;
-
-    opacity: 0.035;
-
-    filter:
-        blur(1px);
-
-    pointer-events: none;
-
-    z-index: -1;
-
-}
-
-
-/* =========================================
-   SPECIAL LOVE SENTENCE
-========================================= */
-
-.special-line {
-
-    position: relative;
-
-    margin-top: 25px;
-
-    padding: 12px 20px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(221, 204, 255, 0.3),
-            rgba(191, 232, 255, 0.3)
-        );
-
-}
-
-
-/*
-    Gentle glow around the final sentence.
-*/
-
-.special-line::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 0 25px
-        rgba(153, 123, 210, 0.15);
-
-    pointer-events: none;
-
-}
-
-
-/* =========================================
-   LOVE QUESTION REVEAL
-========================================= */
-
-.love-question {
-
-    opacity: 0;
-
-    transform:
-        translateY(15px);
-
-    animation:
-        questionReveal 1s ease forwards;
-
-    animation-delay: 4.8s;
-
-}
-
-
-@keyframes questionReveal {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-
-    }
-
-}
-/* =========================================
-   LOVE HEART PULSE
-========================================= */
 
 .heart-icon {
 
     animation:
         loveHeartPulse 2.2s ease-in-out infinite;
+
+}
+
+
+.final-heart {
+
+    animation:
+        finalHeartPulse 2s ease-in-out infinite;
 
 }
 
@@ -1674,3 +773,1367 @@ h2 {
     }
 
 }
+
+
+@keyframes finalHeartPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.15);
+
+    }
+
+}
+
+
+/* =====================================================
+   ✨ TEXT
+   ===================================================== */
+
+.small-text {
+
+    margin:
+        0 0 12px;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        0.5px;
+
+    color:
+        var(--dark-purple);
+
+}
+
+
+h1 {
+
+    margin:
+        10px 0 15px;
+
+    font-family:
+        "Baloo 2",
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        clamp(2rem, 5vw, 3.1rem);
+
+    line-height:
+        1.1;
+
+    font-weight:
+        800;
+
+    color:
+        var(--deep-blue);
+
+}
+
+
+h2 {
+
+    margin:
+        10px 0;
+
+    font-family:
+        "Baloo 2",
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        clamp(1.5rem, 4vw, 2.2rem);
+
+    font-weight:
+        700;
+
+    color:
+        var(--deep-purple);
+
+}
+
+
+.sub-text {
+
+    margin:
+        12px auto 25px;
+
+    max-width:
+        500px;
+
+    font-size:
+        0.95rem;
+
+    line-height:
+        1.7;
+
+    color:
+        #53658f;
+
+}
+
+
+.little-hint {
+
+    min-height:
+        28px;
+
+    margin-top:
+        20px;
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        600;
+
+    color:
+        var(--dark-purple);
+
+}
+
+
+/* =====================================================
+   💙 PAGE 1
+   ===================================================== */
+
+#page1 .card {
+
+    animation:
+        cardAppear 0.8s ease;
+
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   💕 QUESTION BUTTONS
+   ===================================================== */
+
+.question-buttons {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+    margin-top:
+        25px;
+
+    flex-wrap:
+        wrap;
+
+}
+
+
+/* =====================================================
+   🔘 ALL BUTTONS
+   ===================================================== */
+
+.btn {
+
+    position:
+        relative;
+
+    min-width:
+        145px;
+
+    padding:
+        14px 28px;
+
+    border:
+        none;
+
+    border-radius:
+        50px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.4px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =====================================================
+   💙 YES BUTTON
+   ===================================================== */
+
+.yes-btn,
+.yes-love-btn {
+
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6eb9e9,
+            #527fca
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(74, 132, 190, 0.25);
+
+}
+
+
+.yes-btn:hover,
+.yes-love-btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 30px
+        rgba(74, 132, 190, 0.32);
+
+}
+
+
+/* =====================================================
+   💜 NO BUTTON
+   ===================================================== */
+
+.no-btn,
+.no-love-btn {
+
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #aa8cdb,
+            #785aa7
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(119, 86, 160, 0.22);
+
+}
+
+
+.no-btn:hover,
+.no-love-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(119, 86, 160, 0.30);
+
+}
+
+
+/* =====================================================
+   ✨ BUTTON SHINE
+   ===================================================== */
+
+.yes-btn::before,
+.continue-btn::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.7),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    animation:
+        buttonShine 3.5s infinite;
+
+}
+
+
+@keyframes buttonShine {
+
+    0% {
+
+        left:
+            -100%;
+
+    }
+
+    45%,
+    100% {
+
+        left:
+            140%;
+
+    }
+
+}
+
+
+/* =====================================================
+   🎂 PAGE 2 — BIRTHDAY
+   ===================================================== */
+
+.celebration-card {
+
+    animation:
+        birthdayAppear 0.9s ease;
+
+}
+
+
+@keyframes birthdayAppear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            scale(0.9)
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+.birthday-crown {
+
+    animation:
+        crownFloat 2.5s ease-in-out infinite;
+
+}
+
+
+@keyframes crownFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+
+    }
+
+}
+
+
+.birthday-title {
+
+    margin-bottom:
+        5px;
+
+    font-size:
+        clamp(2.3rem, 7vw, 4rem);
+
+    color:
+        var(--dark-blue);
+
+    text-shadow:
+        0 4px 18px
+        rgba(74, 132, 190, 0.18);
+
+    animation:
+        birthdayGlow 2.5s ease-in-out infinite;
+
+}
+
+
+@keyframes birthdayGlow {
+
+    0%,
+    100% {
+
+        text-shadow:
+            0 4px 18px
+            rgba(74, 132, 190, 0.15);
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 5px 30px
+            rgba(74, 132, 190, 0.32);
+
+    }
+
+}
+
+
+.love-highlight {
+
+    margin:
+        20px 0;
+
+    font-family:
+        "Baloo 2",
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        clamp(1.3rem, 4vw, 1.8rem);
+
+    font-weight:
+        700;
+
+    color:
+        var(--dark-purple);
+
+}
+
+
+.birthday-decoration {
+
+    margin:
+        20px 0;
+
+    font-size:
+        2.7rem;
+
+    letter-spacing:
+        12px;
+
+    animation:
+        birthdayFloat 2.8s ease-in-out infinite;
+
+}
+
+
+@keyframes birthdayFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+    }
+
+}
+
+
+/* =====================================================
+   💙 CONTINUE BUTTON
+   ===================================================== */
+
+.continue-btn {
+
+    margin-top:
+        12px;
+
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6eb9e9,
+            #7c68c4
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(100, 103, 185, 0.25);
+
+}
+
+
+.continue-btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+}
+
+
+/* =====================================================
+   💜 PAGE 3 — LOVE MESSAGE
+   ===================================================== */
+
+.love-card {
+
+    max-height:
+        88vh;
+
+}
+
+
+.love-message {
+
+    position:
+        relative;
+
+    margin:
+        20px auto;
+
+    max-width:
+        560px;
+
+}
+
+
+.love-message::before {
+
+    content:
+        "💜";
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-size:
+        10rem;
+
+    opacity:
+        0.035;
+
+    pointer-events:
+        none;
+
+    z-index:
+        -1;
+
+}
+
+
+.love-line {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(18px);
+
+    animation:
+        loveReveal 1s ease forwards;
+
+}
+
+
+.love-line:nth-child(1) {
+
+    animation-delay:
+        0.4s;
+
+}
+
+
+.love-line:nth-child(2) {
+
+    animation-delay:
+        1.2s;
+
+}
+
+
+.love-line:nth-child(3) {
+
+    animation-delay:
+        2s;
+
+}
+
+
+.love-line:nth-child(4) {
+
+    animation-delay:
+        2.8s;
+
+}
+
+
+.love-line:nth-child(5) {
+
+    animation-delay:
+        3.6s;
+
+}
+
+
+@keyframes loveReveal {
+
+    0% {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(18px);
+
+        filter:
+            blur(5px);
+
+    }
+
+    100% {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+
+    }
+
+}
+
+
+.love-message p {
+
+    margin:
+        15px 0;
+
+    font-size:
+        0.94rem;
+
+    line-height:
+        1.75;
+
+    color:
+        #46577f;
+
+}
+
+
+.special-line {
+
+    position:
+        relative;
+
+    margin-top:
+        25px !important;
+
+    padding:
+        12px 20px;
+
+    border-radius:
+        20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(221, 204, 255, 0.3),
+            rgba(191, 232, 255, 0.3)
+        );
+
+    color:
+        var(--dark-purple) !important;
+
+    font-weight:
+        700;
+
+}
+
+
+.special-line::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0 0 25px
+        rgba(153, 123, 210, 0.15);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =====================================================
+   🥺 LOVE QUESTION
+   ===================================================== */
+
+.love-question {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        questionReveal 1s ease forwards;
+
+    animation-delay:
+        4.8s;
+
+}
+
+
+@keyframes questionReveal {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.love-question h2 {
+
+    margin-top:
+        25px;
+
+    color:
+        var(--deep-purple);
+
+}
+
+
+/* =====================================================
+   💙 PAGE 4 — FINAL MESSAGE
+   ===================================================== */
+
+.final-card {
+
+    animation:
+        finalAppear 1s ease;
+
+}
+
+
+@keyframes finalAppear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            scale(0.9);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+.final-message {
+
+    max-width:
+        540px;
+
+    margin:
+        20px auto;
+
+}
+
+
+.final-message p {
+
+    font-size:
+        0.98rem;
+
+    line-height:
+        1.8;
+
+    color:
+        #4c5d84;
+
+}
+
+
+.final-message h2 {
+
+    margin:
+        25px 0;
+
+    font-size:
+        clamp(1.4rem, 4vw, 2rem);
+
+    color:
+        var(--dark-purple);
+
+}
+
+
+.forever {
+
+    font-style:
+        italic;
+
+    color:
+        #68789e !important;
+
+}
+
+
+.final-decoration {
+
+    margin-top:
+        25px;
+
+    font-size:
+        1.8rem;
+
+    letter-spacing:
+        10px;
+
+    animation:
+        finalDecoration 2s ease-in-out infinite;
+
+}
+
+
+@keyframes finalDecoration {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+    }
+
+}
+
+
+/* =====================================================
+   🎉 CONFETTI
+   ===================================================== */
+
+#confetti-container {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    overflow:
+        hidden;
+
+    pointer-events:
+        none;
+
+    z-index:
+        20;
+
+}
+
+
+.confetti {
+
+    position:
+        absolute;
+
+    top:
+        -20px;
+
+    border-radius:
+        3px;
+
+    opacity:
+        0.9;
+
+    animation:
+        confettiFall linear forwards;
+
+}
+
+
+@keyframes confettiFall {
+
+    0% {
+
+        top:
+            -20px;
+
+        transform:
+            rotate(0deg)
+            translateX(0);
+
+        opacity:
+            1;
+
+    }
+
+    100% {
+
+        top:
+            110vh;
+
+        transform:
+            rotate(720deg)
+            translateX(80px);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+/* =====================================================
+   🖱️ SCROLLBAR FOR LONG LOVE CARD
+   ===================================================== */
+
+.card::-webkit-scrollbar {
+
+    width:
+        6px;
+
+}
+
+
+.card::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+
+}
+
+
+.card::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(123, 101, 172, 0.25);
+
+    border-radius:
+        20px;
+
+}
+
+
+.card::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(123, 101, 172, 0.4);
+
+}
+
+
+/* =====================================================
+   📱 MOBILE RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+
+    body {
+
+        overflow:
+            hidden;
+
+    }
+
+
+    .page {
+
+        padding:
+            15px;
+
+    }
+
+
+    .card {
+
+        width:
+            94vw;
+
+        max-height:
+            91vh;
+
+        padding:
+            32px 22px;
+
+        border-radius:
+            26px;
+
+    }
+
+
+    .cute-icon,
+    .birthday-crown,
+    .heart-icon,
+    .final-heart {
+
+        font-size:
+            3rem;
+
+    }
+
+
+    h1 {
+
+        font-size:
+            2rem;
+
+    }
+
+
+    h2 {
+
+        font-size:
+            1.55rem;
+
+    }
+
+
+    .sub-text {
+
+        font-size:
+            0.86rem;
+
+        line-height:
+            1.65;
+
+    }
+
+
+    .question-buttons {
+
+        gap:
+            12px;
+
+    }
+
+
+    .btn {
+
+        min-width:
+            125px;
+
+        padding:
+            12px 20px;
+
+        font-size:
+            0.85rem;
+
+    }
+
+
+    .birthday-title {
+
+        font-size:
+            2.5rem;
+
+    }
+
+
+    .birthday-decoration {
+
+        font-size:
+            2rem;
+
+        letter-spacing:
+            5px;
+
+    }
+
+
+    .love-message p {
+
+        font-size:
+            0.87rem;
+
+        line-height:
+            1.65;
+
+    }
+
+
+    .special-line {
+
+        padding:
+            10px 14px;
+
+    }
+
+
+    .final-message p {
+
+        font-size:
+            0.88rem;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .glow-blue {
+
+        width:
+            220px;
+
+        height:
+            220px;
+
+    }
+
+
+    .glow-purple {
+
+        width:
+            240px;
+
+        height:
+            240px;
+
+    }
+
+
+    .floating-hearts span {
+
+        font-size:
+            1.1rem;
+
+    }
+
+
+    .sparkles span {
+
+        font-size:
+            0.9rem;
+
+    }
+
+}
+
+
+/* =====================================================
+   📱 VERY SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+
+    .card {
+
+        padding:
+            25px 17px;
+
+    }
+
+
+    h1 {
+
+        font-size:
+            1.75rem;
+
+    }
+
+
+    h2 {
+
+        font-size:
+            1.35rem;
+
+    }
+
+
+    .btn {
+
+        min-width:
+            115px;
+
+        padding:
+            11px 16px;
+
+    }
+
+
+    .love-message p {
+
+        font-size:
+            0.82rem;
+
+    }
+
+}
+
+
+/* =====================================================
+   ♿ REDUCED MOTION
+   ===================================================== */
+
+/*
+   If a visitor has enabled reduced
+   motion on their device, make the
+   animations calmer.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
+```
